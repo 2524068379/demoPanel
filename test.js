@@ -1104,7 +1104,7 @@ async function handleSubscriptionRequest(request, user, url = null) {
     if (finalLinks.length === 0) {
         const errorRemark = "所有节点获取失败";
         const proto = atob('dmxlc3M=');
-        const errorLink = `${proto}://00000000-0000-0000-0000-000000000000@127.0.0.1:80?encryption=none&security=none&type=ws&host=error.com&path=%2F#${encodeURIComponent(errorRemark)}`;
+        const errorLink = `${proto}://00000000-0000-0000-0000-000000000000@127.0.0.1:80?encryption=mlkem768x25519plus.native.600s.aHquSZ3QaD7xpi8z3hLu8ZErdnYcrtYVH9zFICaYm2M&security=none&type=ws&host=error.com&path=%2F#${encodeURIComponent(errorRemark)}`;
         finalLinks.push(errorLink);
     }
 
@@ -1198,7 +1198,7 @@ function generateLinksFromSource(list, user, workerDomain) {
                 
                 const wsNodeName = `${nodeNameBase}-${port}-WS-TLS`;
                 const wsParams = new URLSearchParams({ 
-                    encryption: 'none', 
+                    encryption: 'mlkem768x25519plus.native.600s.aHquSZ3QaD7xpi8z3hLu8ZErdnYcrtYVH9zFICaYm2M', 
                     security: 'tls', 
                     sni: workerDomain, 
                     fp: 'chrome', 
@@ -1211,7 +1211,7 @@ function generateLinksFromSource(list, user, workerDomain) {
                 
                 const wsNodeName = `${nodeNameBase}-${port}-WS`;
                 const wsParams = new URLSearchParams({
-                    encryption: 'none',
+                    encryption: 'mlkem768x25519plus.native.600s.aHquSZ3QaD7xpi8z3hLu8ZErdnYcrtYVH9zFICaYm2M',
                     security: 'none',
                     type: 'ws',
                     host: workerDomain,
@@ -3352,19 +3352,19 @@ function generateLinksFromNewIPs(list, user, workerDomain) {
         if (CF_HTTPS_PORTS.includes(port)) {
             
             const wsNodeName = `${nodeName}-${port}-WS-TLS`;
-            const link = `${proto}://${user}@${item.ip}:${port}?encryption=none&security=tls&sni=${workerDomain}&fp=chrome&type=ws&host=${workerDomain}&path=${wsPath}#${encodeURIComponent(wsNodeName)}`;
+            const link = `${proto}://${user}@${item.ip}:${port}?encryption=mlkem768x25519plus.native.600s.aHquSZ3QaD7xpi8z3hLu8ZErdnYcrtYVH9zFICaYm2M&security=tls&sni=${workerDomain}&fp=chrome&type=ws&host=${workerDomain}&path=${wsPath}#${encodeURIComponent(wsNodeName)}`;
             links.push(link);
         } else if (CF_HTTP_PORTS.includes(port)) {
             
             if (!disableNonTLS) {
                 const wsNodeName = `${nodeName}-${port}-WS`;
-                const link = `${proto}://${user}@${item.ip}:${port}?encryption=none&security=none&type=ws&host=${workerDomain}&path=${wsPath}#${encodeURIComponent(wsNodeName)}`;
+                const link = `${proto}://${user}@${item.ip}:${port}?encryption=mlkem768x25519plus.native.600s.aHquSZ3QaD7xpi8z3hLu8ZErdnYcrtYVH9zFICaYm2M&security=none&type=ws&host=${workerDomain}&path=${wsPath}#${encodeURIComponent(wsNodeName)}`;
                 links.push(link);
             }
         } else {
             
             const wsNodeName = `${nodeName}-${port}-WS-TLS`;
-            const link = `${proto}://${user}@${item.ip}:${port}?encryption=none&security=tls&sni=${workerDomain}&fp=chrome&type=ws&host=${workerDomain}&path=${wsPath}#${encodeURIComponent(wsNodeName)}`;
+            const link = `${proto}://${user}@${item.ip}:${port}?encryption=mlkem768x25519plus.native.600s.aHquSZ3QaD7xpi8z3hLu8ZErdnYcrtYVH9zFICaYm2M&security=tls&sni=${workerDomain}&fp=chrome&type=ws&host=${workerDomain}&path=${wsPath}#${encodeURIComponent(wsNodeName)}`;
             links.push(link);
         }
     });
@@ -3382,7 +3382,7 @@ function generateXhttpLinksFromSource(list, user, workerDomain) {
         
         const wsNodeName = `${nodeNameBase}-${port}-xhttp`;
         const params = new URLSearchParams({
-            encryption: 'none',
+            encryption: 'mlkem768x25519plus.native.600s.aHquSZ3QaD7xpi8z3hLu8ZErdnYcrtYVH9zFICaYm2M',
             security: 'tls',
             sni: workerDomain,
             fp: 'chrome',
